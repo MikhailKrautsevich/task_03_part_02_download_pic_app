@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Download Pic App</string>
+    <string name="hint_edittext_main">Type URL here</string>
+    <string name="btn_random_url">Random URL</string>
 </resources>
