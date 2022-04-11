@@ -54,15 +54,19 @@ class MainActivity : AppCompatActivity() {
 
             override fun afterTextChanged(p0: Editable?) {
                 Log.d("12345", "afterTextChanged - $p0")
-                sPicasso.load(p0.toString().toUri())
-                    .into(mImageView, object : com.squareup.picasso.Callback {
-                        override fun onSuccess() {
-                        }
+                p0?.let {
+                    if (p0.isNotBlank()) {
+                        sPicasso.load(p0.toString().trim().toUri())
+                            .into(mImageView, object : com.squareup.picasso.Callback {
+                                override fun onSuccess() {
+                                }
 
-                        override fun onError(e: Exception?) {
-                            mFailToast.show()
-                        }
-                    })
+                                override fun onError(e: Exception?) {
+                                    mFailToast.show()
+                                }
+                            })
+                    }
+                }
             }
         })
     }
